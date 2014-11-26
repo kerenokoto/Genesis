@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @event.venue %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @event.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@event.picture_url, :width => 600) if @event.picture.present? %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @event.rating %>
+</p>
+
+<h2>Comments</h2>
+<%= render @event.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@event, @event.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

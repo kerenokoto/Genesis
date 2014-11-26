@@ -1,0 +1,79 @@
+<!-- <h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WELCOME</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="container">
+
+    <!--start header-->
+
+   <header>
+ 
+    <!--start logo-->
+
+    <%=image_tag "Godcreated.png", :size => '800x500', :class => 'pic' %>
+    
+	<!--end logo-->
+	
+   <!--start menu-->
+
+	<nav>
+    <ul>
+	    <li><a href="#" class="current">Home</a></li>
+	    <li><a href="#">About us</a></li>
+		<!-- <li><%= link_to 'Admin', 'authenticate/login'%></li>
+	    <li><%= link_to("SignIn", 'users/sign_in')%></li>
+	    <li><%= link_to("Articles", 'story/index')%></li> -->
+	    <li><%= link_to("Events", events_path)%></li>
+		
+    </ul>
+    </nav>
+   </header>
+
+		<div class="container">
+		<%= yield %>
+		</div>
+
+	<div id="intro">
+   
+   <div class="group_bannner_right">
+   </div>
+   
+   <header class="group_bannner_left">
+   <hgroup>
+    <%=image_tag "genesis.png"%>
+      <div class="rotator" id = "middle">
+          <div> <h2>“In the beginning God created the heaven and the earth“ <font color="blue"><i>— Genesis 1:1</i></font></h2></div>
+          <div> <h2>“And God created great whales and every living creature that moveth, which the waters brought forth abundantly, after their kind“ <font color="yellow"><i>— Genesis 1:21a</i></font></h2></div>
+          <div> <h2>“And every winged fowl after his kind, and God saw it was good“ <font color="green"><i>— Genesis 1:21b</i></font></h2></div>
+      </div>
+   </hgroup>
+   </header>
+   </div>
+
+
+<script>
+
+  $(".rotator > div:gt(0)").hide();
+  setInterval(function() {
+    $('.rotator > div:first')
+    .fadeOut(0)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('.rotator');
+}, 3000);
+</script>
+
+
+</body>
+
+
+</html>
