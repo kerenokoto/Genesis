@@ -1,5 +1,9 @@
-<h1>Listing events</h1>
-
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>Your Favourite Events Reviewed</h1>
+    <h1>Listing events</h1>
+    </div>
+    <% end %>
 <table>
   <thead>
     <tr>

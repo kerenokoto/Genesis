@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @expense.date %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @expense.title %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @expense.salary %>
+</p>
+
+<p>
+  <strong>Maintenance:</strong>
+  <%= @expense.maintenance %>
+</p>
+
+<p>
+  <strong>Utility bills:</strong>
+  <%= @expense.utility_bills %>
+</p>
+
+<p>
+  <strong>Total expenses:</strong>
+  <%= @expense.total_expenses %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>
