@@ -151,7 +151,7 @@ footer {
 	-moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
 	box-shadow: rgba(0,0,0,1) 0 1px 0;
 	text-shadow: rgba(0,0,0,.4) 0 1px 0;
-	color: black;
+	color:gray;
 	font-size: 14px;
 	font-family: Georgia, serif;
 	text-decoration: none;
@@ -193,11 +193,13 @@ header {
 	border-radius: 5px 5px 5px 5px;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 0 rgba(255, 255, 255, 0.4) inset;
 	color: white;
+	background-color: #428bca;
 	display: inline-block;
 	font-weight: 300;
+	width: 90px;
 	line-height: 15px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
-	margin-top: 3px;
+	/*margin-top: 3px;*/
 	margin-right: 0;
 	margin-bottom: 3px;
 	margin-left: 0;

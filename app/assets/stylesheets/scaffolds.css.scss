@@ -6,9 +6,9 @@ body {
   line-height: 18px;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+p, ol, ul,  {
+  font-family: "leitura-news-n4","leitura-news",serif;
+  font-size: 17px;
   line-height: 18px;
 }
 
@@ -19,9 +19,8 @@ pre {
 }
 
 a {
-  color: #000;
   &:visited {
-    color: #666;
+  
   }
   &:hover {
     color: #fff;

@@ -7,6 +7,8 @@
   <title>WELCOME</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+ <div class="container">
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -24,19 +26,21 @@
 	
    <!--start menu-->
 
-	<nav>
-    <ul>
-	    <li><a href="#" class="current">Home</a></li>
-	    <li><a href="#">About us</a></li>
-		  <li><%= link_to 'Finances', expenses_path%></li> 
-	    <li><%= link_to("SignIn", 'users/sign_in')%></li>
-	    <!-- <li><%= link_to("Articles", 'story/index')%></li>  -->
-	    <li><%= link_to("Events", events_path)%></li>
-		
-    </ul>
-    </nav>
+
    </header>
 
+    <nav>
+          <ul>
+            <li><a href="#" class="current">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><%= link_to 'Finances', expenses_path%></li> 
+            <li><%= link_to("SignIn", 'users/sign_in')%></li>
+            <li><%= link_to("Articles", 'article/index')%></li>  
+            <li><%= link_to("Events", events_path)%></li>
+          
+          </ul>
+        </nav>
+    
 		<div class="container">
 		<%= yield %>
 		</div>
@@ -45,17 +49,18 @@
    
    <div class="group_bannner_right">
    </div>
-   
+   <div class="container">
    <header class="group_bannner_left">
    <hgroup>
     <%=image_tag "genesis.png"%>
       <div class="rotator" id = "middle">
-          <div> <h2>“In the beginning God created the heaven and the earth“ <font color="blue"><i>— Genesis 1:1</i></font></h2></div>
-          <div> <h2>“And God created great whales and every living creature that moveth, which the waters brought forth abundantly, after their kind“ <font color="yellow"><i>— Genesis 1:21a</i></font></h2></div>
-          <div> <h2>“And every winged fowl after his kind, and God saw it was good“ <font color="green"><i>— Genesis 1:21b</i></font></h2></div>
+          <div> <h5>“In the beginning God created the heaven and the earth“ <font color="blue"><i>— Genesis 1:1</i></font></h5></div>
+          <div> <h5>“And God created great whales and every living creature that moveth, which the waters brought forth abundantly, after their kind“ <font color="yellow"><i>— Genesis 1:21a</i></font></h5></div>
+          <div> <h5>“And every winged fowl after his kind, and God saw it was good“ <font color="green"><i>— Genesis 1:21b</i></font></h5></div>
       </div>
    </hgroup>
    </header>
+   </div>
    </div>
 
 
@@ -75,5 +80,5 @@
 
 </body>
 
-
+</div>
 </html>

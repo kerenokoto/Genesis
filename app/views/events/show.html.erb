@@ -1,3 +1,5 @@
+<div class="container">
+
 <%- model_class = Event -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
@@ -17,39 +19,75 @@
 </dd>
   <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
   <dd><%= @event.rating %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <!-- <div class="star-rating" data-score></div> -->
+  <div data-score = "5"></div>
+   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
   <dd><%= @event.user_id %></dd>
 </dl>
+</div>
 
-h2>Comments</h2>
-<%= render @event.comments %>
+<div class="container" style='margin-left:250px'>
+  <div class="row" style='width:590px'>
+    <h2>Comments</h2>
+    <%= render @event.comments %>
 
-<h2>Add a comment:</h2>
-<%= render "comments/form" %>
-<!-- 
-<h2>Add a comment:</h2>
-<%= form_for([@event, @event.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
- -->
+    <h2>Add a comment:</h2>
+    <%= render "comments/form" %>
+    <!-- 
+    <h2>Add a comment:</h2>
+    <%= form_for([@event, @event.comments.build]) do |f| %>
+      <p>
+        <%= f.label :commenter %><br>
+        <%= f.text_field :commenter %>
+      </p>
+      <p>
+        <%= f.label :body %><br>
+        <%= f.text_area :body %>
+      </p>
+      <p>
+        <%= f.submit %>
+      </p>
+  <% end %>
+   -->
+   </div>
+ </div>
+<br>
+<br>
+<br>
 
 
-<%= link_to t('.back', :default => t("helpers.links.back")),
-              events_path, :class => 'btn btn-default'  %>
-<%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_event_path(@event), :class => 'btn btn-default' %>
-<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              event_path(@event),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
+<div class="container" style='margin-left:150px'>
+
+    <%= link_to t('.back', :default => t("helpers.links.back")),
+                  events_path, :class => 'btn btn-default'  %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_event_path(@event), :class => 'btn btn-default' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  event_path(@event),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
+
+</div>
+<script>
+// $('.star rating').raty({
+//   path: '/assets',
+//   readOnly: true,
+//   score: function() {
+//     return $(this).attr('data-score');
+//   }
+// });
+
+
+$('div').raty({
+  score: function() {
+    return $(this).attr('data-score');
+  }
+});
+</script>
+
+
+<br>
+<br>
+<br>
+<br>

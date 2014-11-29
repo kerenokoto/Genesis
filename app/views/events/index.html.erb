@@ -1,11 +1,14 @@
-<%- model_class = Event -%>
+  <%= render partial: "shared/nav"%>
+
+<div class="col-lg-10">
+  <%- model_class = Event -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
       <th><%= model_class.human_attribute_name(:date) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:venue) %></th>
@@ -20,16 +23,17 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.id, event_path(event) %></td>
+        <!-- <td><%= link_to event.id, event_path(event) %></td> -->
         <td><%= event.date %></td>
         <td><%= event.title %></td>
         <td><%= event.venue %></td>
         <td><%= event.description %></td>
-        <td><%= event.picture %></td>
+        <td><%= image_tag(event.picture, :size => '80x80')%></td>
         <td><%= event.rating %></td>
         <td><%= event.user_id %></td>
-        <td><%=l event.created_at %></td>
+        <td><%= event.created_at.to_formatted_s(:long_ordinal) %></td>
         <td>
+
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_event_path(event), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -46,3 +50,6 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_event_path,
             :class => 'btn btn-primary' %>
+
+</div>
+
