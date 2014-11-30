@@ -1,18 +1,19 @@
+<%= render partial: "shared/navbar"%>
 <!DOCTYPE html>
 <html>
 	<head>
-		<%=image_tag "genesis.png"%>
+		<!-- <%=image_tag "genesis.png"%> -->
 	</head>
 	<body>
-		<div class="container">
-		    <div class='col-sm-2 col-' style='margin-top:20px'>
-		    	<%=image_tag "articles.jpg"%>		
-			</div>
+		<!-- <div class="container">
+		    <div class='col-sm-2 col-' style='margin-top:20px'> -->
+		    	<%=image_tag "articles.png"%>		
+			<!-- </div>
 		<div class='col-sm-2'>
 				
 		</div>
 		<div class="container">
-			<div class='col-sm-6' style='margin-bottom:500px'> 
+			<div class='col-sm-8-col' style='margin-bottom:500px'>  -->
 				<!-- <%=image_tag "Flows.png", :size => '530x115'%> -->
 				<h1>MOST READ ARTICLES</h1>
 					<% @rss.each do |rss| %>
@@ -22,6 +23,7 @@
 					<p><%=rss.description.split(';')[2].split('.')[0] %></p>
 					<%= image_tag rss.media_content_url %>
 					<% end %>
+				
 			</div>
 		</div>
 		<div class='col-sm-1'>

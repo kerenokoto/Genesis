@@ -196,12 +196,12 @@ header {
 	background-color: #428bca;
 	display: inline-block;
 	font-weight: 300;
-	width: 90px;
+	width: 100px;
 	line-height: 15px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 	/*margin-top: 3px;*/
 	margin-right: 0;
-	margin-bottom: 3px;
+	/*margin-bottom: 3px;*/
 	margin-left: 0;
 	padding-top: 9px;
 	padding-bottom: 9px;

@@ -1,0 +1,27 @@
+ <div class="header">    
+    <div class="header_top">
+      <div class="container">
+        <div class="headertop_nav">
+        <ul>
+            <li><a href="#">About us</a></li>
+            <li><%= link_to 'Finances', expenses_path%></li> 
+            <li><%= link_to("SignIn", 'users/sign_in')%></li>
+            <li><%= link_to("Articles", 'article/index')%></li>  
+            <li><%= link_to("Events", events_path)%></li>
+          
+      </div>
+        <div class="header-top-right">
+            <div class="login_box">
+             <div id="loginContainer">
+                    <a id="loginButton" class="active"><span class="active"><i class="search-icon"></i>Search</span></a>               
+                  <div id="loginBox">                
+                      <form id="loginForm">
+                          <div class="search_box">
+                <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                <input type="submit" value="">
+              </div>
+                      </form>
+                  </div>
+                </div>
+             </div> 
+       </div>

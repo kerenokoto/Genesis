@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'blog/index'
+
   get 'article/index' => 'article#index'
 
   resources :expenses

@@ -1,59 +1,63 @@
+<%= render partial: "shared/navbar"%>
+
 <div class="container">
+  <!-- <div class="jumbotron"> -->
 
-<%- model_class = Event -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+      <%- model_class = Event -%>
+      <div class="page-header">
+        <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+      </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-  <dd><%= @event.date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @event.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:venue) %>:</strong></dt>
-  <dd><%= @event.venue %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @event.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:picture) %>:</strong></dt>
-  <dd><%= image_tag(@event.picture, :width => 600) if @event.picture.present? %> 
-</dd>
-  <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
-  <dd><%= @event.rating %></dd>
-  <!-- <div class="star-rating" data-score></div> -->
-  <div data-score = "5"></div>
-   <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @event.user_id %></dd>
-</dl>
-</div>
+      <dl class="dl-horizontal">
+        <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
+        <dd><%= @event.date %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+        <dd><%= @event.title %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:venue) %>:</strong></dt>
+        <dd><%= @event.venue %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+        <dd><%= @event.description %></dd>
+        <dt><strong><%= model_class.human_attribute_name(:picture) %>:</strong></dt>
+        <dd><%= image_tag(@event.picture, :width => 600) if @event.picture.present? %> 
+      </dd>
+        <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
+        <dd><%= @event.rating %></dd>
+        <!-- <div class="star-rating" data-score></div> -->
+        <div data-score = "5"></div>
+         <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+        <dd><%= @event.user_id %></dd>
+      </dl>
+      </div>
 
-<div class="container" style='margin-left:250px'>
-  <div class="row" style='width:590px'>
-    <h2>Comments</h2>
-    <%= render @event.comments %>
+      <div class="container" style='margin-left:250px'>
+        <div class="row" style='width:590px'>
+          <h2>Comments</h2>
+          <%= render @event.comments %>
 
-    <h2>Add a comment:</h2>
-    <%= render "comments/form" %>
-    <!-- 
-    <h2>Add a comment:</h2>
-    <%= form_for([@event, @event.comments.build]) do |f| %>
-      <p>
-        <%= f.label :commenter %><br>
-        <%= f.text_field :commenter %>
-      </p>
-      <p>
-        <%= f.label :body %><br>
-        <%= f.text_area :body %>
-      </p>
-      <p>
-        <%= f.submit %>
-      </p>
-  <% end %>
-   -->
-   </div>
- </div>
-<br>
-<br>
-<br>
+          <h2>Add a comment:</h2>
+          <%= render "comments/form" %>
+          <!-- 
+          <h2>Add a comment:</h2>
+          <%= form_for([@event, @event.comments.build]) do |f| %>
+            <p>
+              <%= f.label :commenter %><br>
+              <%= f.text_field :commenter %>
+            </p>
+            <p>
+              <%= f.label :body %><br>
+              <%= f.text_area :body %>
+            </p>
+            <p>
+              <%= f.submit %>
+            </p>
+        <% end %>
+         -->
+         </div>
+       </div>
+      <br>
+      <br>
+      <br>
+  </div>
 
 
 <div class="container" style='margin-left:150px'>
