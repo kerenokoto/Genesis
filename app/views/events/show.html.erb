@@ -21,9 +21,8 @@
         <dd><%= image_tag(@event.picture, :width => 600) if @event.picture.present? %> 
       </dd>
         <dt><strong><%= model_class.human_attribute_name(:rating) %>:</strong></dt>
-        <dd><%= @event.rating %></dd>
-        <!-- <div class="star-rating" data-score></div> -->
-        <div data-score = "5"></div>
+        <!-- <dd><%= @event.rating %></dd> -->
+        <div class="star-rating" data-score=<%=@event.rating%>></div>
          <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
         <dd><%= @event.user_id %></dd>
       </dl>
@@ -74,16 +73,9 @@
 
 </div>
 <script>
-// $('.star rating').raty({
-//   path: '/assets',
-//   readOnly: true,
-//   score: function() {
-//     return $(this).attr('data-score');
-//   }
-// });
-
-
-$('div').raty({
+$('.star-rating').raty({
+  path: '/assets/',
+  readOnly: true,
   score: function() {
     return $(this).attr('data-score');
   }
@@ -91,7 +83,3 @@ $('div').raty({
 </script>
 
 
-<br>
-<br>
-<br>
-<br>

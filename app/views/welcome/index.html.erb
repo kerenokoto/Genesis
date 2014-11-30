@@ -82,7 +82,7 @@
 <html>
 <head>
 <title>Genesis</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="stylesheets/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Custom Theme files -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
@@ -137,11 +137,12 @@
       <div class="container">
         <div class="headertop_nav">
         <ul>
-            <li><a href="#">About us</a></li>
-            <li><%= link_to 'Finances', expenses_path%></li> 
+            <li><a href="index.html">Genesis</li>
             <li><%= link_to("SignIn", 'users/sign_in')%></li>
-            <li><%= link_to("Articles", 'article/index')%></li>  
             <li><%= link_to("Events", events_path)%></li>
+            <li><%= link_to 'Finances', expenses_path%></li> 
+            <li><%= link_to("Articles", 'article/index')%></li>  
+            
           
       </div>
         <div class="header-top-right">
@@ -166,7 +167,7 @@
       <div class="header_bottom">
         <div class="container">       
         <div class="logo">
-          <h1><a href="index.html">Genesis<span>Connecting Churches</span></a></h1>
+          <h1><span>Connecting Churches</span></a></h1>
         </div>        
       <div class="navigation">  
       <div>
@@ -175,7 +176,7 @@
               </label>
               <input id="mobile_menu" type="checkbox">
         <ul class="nav">
-              <li><a href="index.html">Home</a></li>                  
+              <li><%= link_to("SignIn", 'users/sign_in')%></li>                
               <!-- <li class="dropdown"><a href="room.html">Reservation</a>
                 <ul class="dropdown2">
                   <li><a href="room.html">Room 1</a></li>
@@ -185,7 +186,7 @@
                   <li><a href="room.html">Room 3</a></li>
                 </ul>
               </li>   -->           
-              <li class="dropdown"><a href="about.html">Events</a></li>
+              <li class="dropdown"><li><%= link_to("Events", events_path)%></li>
            </li>           
            <li class="dropdown"><a href="blog.html">Blogs</a>
               <ul>
@@ -318,12 +319,12 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-9">
-                  <div id="main-reservation-text"><h3>Call us <span>+1 2547 487 8974</span> or made reservation right now!</h3>
+                  <div id="main-reservation-text"><h3>Call us <span>+ 233 547 487</span> or visit as at Christ Evangelistic Ministry this coming sunday</h3>
                  <p>vestibulum eu euismod quam nullam at accumsan orci aenean ullamcorper nulla ut sapien ultrices dignissim</p>
                 </div>
                 </div>
                 <div class="col-md-3">
-                  <a href="reservation.html" title="Online Reservation" class="btn btn-primary btn-normal btn-inline " target="_self">Online Reservation</a>
+                  <!-- <a href="reservation.html" title="Online Reservation" class="btn btn-primary btn-normal btn-inline " target="_self">Online Reservation</a> -->
                 </div>
               </div>
             </div>
@@ -333,7 +334,12 @@
               <div class="row">
              <div class="col-md-8">
                <div class="welcome_desc">
-                  <h3>Visitor Experienced</h3>
+                  <h3>Bible quotations</h3>
+                  <div class="rotator" id = "middle">
+                      <div> <h5>“In the beginning God created the heaven and the earth“ <font color="blue"><i>— Genesis 1:1</i></font></h5></div>
+                      <div> <h5>“And God created great whales and every living creature that moveth, which the waters brought forth abundantly, after their kind“ <font color="yellow"><i>— Genesis 1:21a</i></font></h5></div>
+                      <div> <h5>“And every winged fowl after his kind, and God saw it was good“ <font color="green"><i>— Genesis 1:21b</i></font></h5></div>
+                  </div>
                     <div class="course_demo">
                     <ul id="flexiselDemo3"> 
                 <li><img src="images/v1.jpg" class="img-responsive" /><div class="desc">
@@ -406,9 +412,9 @@
                  <div class="ocarousel_slider">  
                 <div class="ocarousel example_photos" data-ocarousel-perscroll="3">
                       <div class="ocarousel_window">
-                         <a href="#" title="Hp"> <img src="images/g1.jpg" class="img-responsive" alt="" /></a>
-                         <a href="#" title="Bosch"><img src="images/g2.jpg" class="img-responsive" alt="" /></a>
-                         <a href="#" title="El pso"><img src="images/g3.jpg" class="img-responsive" alt="" /></a>
+                         <li><a href="#"><%=image_tag "child.jpg" %></a></li>
+                         <li><a href="#"><%=image_tag "concerts.jpg" %></a></li>
+        
                          <a href="#" title="Print X Press"><img src="images/g4.jpg" class="img-responsive" alt="" /></a>
                          <a href="#" title="Arcelo mittal"><img src="images/g5.jpg" class="img-responsive" alt="" /></a>
                           <a href="#" title="Goldware IT Services"><img src="images/g6.jpg" class="img-responsive" alt="" /></a>
@@ -470,13 +476,13 @@
               </div>
               <div class="footer_bottom">
                <div class="copy_right">
-            <p>&copy; 2013 All Rights Reseverd Designed by <a href="http://w3layouts.com/">W3layouts</a> </p>
+            <p>&copy; Aluguntuguntu East Legon 2013 All Rights Resevered </p>
            </div>
            <div class="footer_nav">
              <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="#">Terms of use</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+              <!-- <li><a href="#">Terms of use</a></li>
+              <li><a href="#">Privacy Policy</a></li> -->
               <li><a href="contact.html">Contact</a></li>
              </ul>
             </div>
@@ -485,5 +491,18 @@
        </div>
    </div>
 </body>
+ <script>
+
+  $(".rotator > div:gt(0)").hide();
+  setInterval(function() {
+    $('.rotator > div:first')
+    .fadeOut(0)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('.rotator');
+}, 3000);
+</script>
+
 </html>
 

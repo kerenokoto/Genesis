@@ -14,7 +14,9 @@ margin-left: -20px;
 .bb
 {
 	height: 450px;
-	background: #FFFFB2;
+	/*background: #FFFFB2;*/
+	/*background: #58453F;*/
+	background: #dcbc86;
 	border-radius:10px;
 	box-shadow: 0px 0px 8px;
 	width:500px

@@ -1,14 +1,14 @@
  <%= render partial: "shared/navbar"%>
- <%= render partial: "shared/rotator"%> 
+ <%= render partial: "shared/rotator"%>  
 
 
-<div class="col-lg-8">
-  <%- model_class = Event -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<table class="table table-striped">
-  <thead>
+  <div class="col-lg-9">
+    <%- model_class = Event -%>
+  <div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  </div>
+  <table class="table table-striped">
+    <thead>
     <tr>
       <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
       <th><%= model_class.human_attribute_name(:date) %></th>
@@ -31,18 +31,24 @@
         <td><%= event.venue %></td>
         <td><%= event.description %></td>
         <td><%= image_tag(event.picture, :size => '80x80')%></td>
-        <td><%= event.rating %></td>
+        <td><div class="star-rating" data-score=<%=event.rating%>></div></td>
         <td><%= event.user_id %></td>
         <td><%= event.created_at.to_formatted_s(:long_ordinal) %></td>
         <td>
+          
 
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_event_path(event), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+        <% if can? :update, @events %>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                              edit_event_path(event), :class => 'btn btn-default btn-xs' %>
+
+
+          
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       event_path(event),
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
+                      <% end %>
         </td>
       </tr>
     <% end %>
@@ -55,3 +61,12 @@
  
 </div>
 
+<script>
+$('.star-rating').raty({
+  path: '/assets/',
+  readOnly: true,
+  score: function() {
+    return $(this).attr('data-score');
+  }
+});
+</script>

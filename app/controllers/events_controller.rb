@@ -10,22 +10,26 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+
+
   end
 
   # GET /events/new
   def new
     @event = current_user.events.build
+    authorize! :create, @events
   end
 
   # GET /events/1/edit
   def edit
+    #authorize! :read, @event
   end
 
   # POST /events
   # POST /events.json
   def create
     @event = current_user.events.build(event_params)
-
+    authorize! :create, @events
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -41,6 +45,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
+      authorize! :update, @events
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }

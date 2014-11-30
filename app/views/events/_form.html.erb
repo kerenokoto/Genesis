@@ -55,7 +55,8 @@
   <div class="control-group">
     <%= f.label :rating, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :rating, :class => 'form-control' %>
+      <!-- <%= f.text_field :rating, :class => 'form-control' %> -->
+      <div id = "star-rating"></div>
     </div>
     <%= error_span(@event[:rating]) %>
   </div>
@@ -73,3 +74,12 @@
             events_path, :class => 'btn btn-default' %>
 
 <% end %>
+
+<script>
+$('#star-rating').raty({
+path: '/assets/',
+scoreName: 'event[rating]'
+});
+</script>
+
+
