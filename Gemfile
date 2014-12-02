@@ -34,6 +34,7 @@ gem 'spring',        group: :development
 gem 'devise', '~> 3.4.1'
 gem 'cancan'
 
+gem 'mechanize', '~> 2.7.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,48 +1,53 @@
  <%= render partial: "shared/navbar"%>
- <%= render partial: "shared/rotator"%>  
+ <!-- <%= render partial: "shared/rotator"%> -->
 
 
-  <div class="col-lg-9">
-    <%- model_class = Event -%>
-  <div class="page-header">
-    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-  </div>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
-      <th><%= model_class.human_attribute_name(:date) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:venue) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:picture) %></th>
-      <th><%= model_class.human_attribute_name(:rating) %></th>
-      <th><%= model_class.human_attribute_name(:user_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @events.each do |event| %>
+  <div class="container">
+    <div class="col-lg-12">
+      <%- model_class = Event -%>
+    <div class="page-header">
+      <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+    </div>
+    <table class="table table-striped">
+      <thead>
       <tr>
-        <!-- <td><%= link_to event.id, event_path(event) %></td> -->
-        <td><%= event.date %></td>
-        <td><%= event.title %></td>
-        <td><%= event.venue %></td>
-        <td><%= event.description %></td>
-        <td><%= image_tag(event.picture, :size => '80x80')%></td>
-        <td><div class="star-rating" data-score=<%=event.rating%>></div></td>
-        <td><%= event.user_id %></td>
-        <td><%= event.created_at.to_formatted_s(:long_ordinal) %></td>
-        <td>
-          
+        <!-- <th><%= model_class.human_attribute_name(:id) %></th> -->
+        <th><%= model_class.human_attribute_name(:date) %></th>
+        <th><%= model_class.human_attribute_name(:title) %></th>
+        <th><%= model_class.human_attribute_name(:venue) %></th>
+        <th><%= model_class.human_attribute_name(:description) %></th>
+        <th><%= model_class.human_attribute_name(:picture) %></th>
+        <th><%= model_class.human_attribute_name(:rating) %></th>
+        <th><%= model_class.human_attribute_name(:user_id) %></th>
+        <th><%= model_class.human_attribute_name(:created_at) %></th>
+        <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <!-- <td><%= link_to event.id, event_path(event) %></td> -->
+          <td><%= event.date %></td>
+          <td><%= event.title %></td>
+          <td><%= event.venue %></td>
+          <td><%= event.description %></td>
+          <td><%= image_tag(event.picture, :size => '80x80')%></td>
+          <td><div class="star-rating" data-score=<%=event.rating%>></div></td>
+          <td><%= event.user_id %></td>
+          <td><%= event.created_at.to_formatted_s(:long_ordinal) %></td>
+          <td>
+            
 
+  
+        <%= link_to t('.show', :default => t("helpers.links.show")),
+                              event_path(event.id), :class => 'btn btn-default btn-xs' %>
         <% if can? :update, @events %>
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
                               edit_event_path(event), :class => 'btn btn-default btn-xs' %>
-
-
-          
+                        
+        
+ 
+        
         <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       event_path(event),
                       :method => :delete,
@@ -54,12 +59,14 @@
     <% end %>
   </tbody>
 </table>
-
+<% if can? :update, @events %>
  <%= link_to t('.new', :default => t("helpers.links.new")),
             new_event_path,
             :class => 'btn btn-default' %>
- 
+<% end %>
+  </div> 
 </div>
+<%= render partial: "shared/footer"%> 
 
 <script>
 $('.star-rating').raty({
